@@ -23,10 +23,9 @@ DIR="$(mktemp -d)"
 TMP_FILES=()
 
 for FILE in $@; do
-  TMP_FILE="$(mktemp -p $DIR)"
+  TMP_FILE="$(mktemp -u -p $DIR)"
   #echo "Moved" $FILE "to" $TMP_FILE$
   mv $FILE $TMP_FILE
-  touch $FILE
   TMP_FILES+=("$TMP_FILE")
 done
 
